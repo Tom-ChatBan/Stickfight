@@ -1,0 +1,7 @@
+name: Stickfight
+version: '${project.version}'
+main: me.tom.stickfight.Main
+api-version: 1.19
+commands:
+  challengeplayer:
+  acceptchallenge:
