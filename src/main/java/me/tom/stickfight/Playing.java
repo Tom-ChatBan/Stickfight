@@ -1,6 +1,8 @@
-package me.tom.stickfight.commands;
+package me.tom.stickfight;
 
 import me.tom.stickfight.Main;
+import me.tom.stickfight.commands.AcceptChallenge;
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
 public class Playing {
@@ -29,5 +31,11 @@ public class Playing {
     }
     public static int getPunkteDefender(){
         return punkteDefender;
+    }
+    public static void teleportToStart(){
+        Location challenger = new Location(attack.getWorld(), -169, 151, 42);
+        Location defender = new Location(def.getWorld(), -153, 151, 42);
+        attack.teleport(challenger);
+        def.teleport(defender);
     }
 }

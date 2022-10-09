@@ -1,7 +1,7 @@
 package me.tom.stickfight.events;
 
 import me.tom.stickfight.commands.AcceptChallenge;
-import me.tom.stickfight.commands.Playing;
+import me.tom.stickfight.Playing;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -24,9 +24,11 @@ public class PlayerMove implements Listener {
                 Playing play = new Playing(acceptChallenge, acceptChallenge.p, acceptChallenge.ta);
                 if(acceptChallenge == p){
                     Playing.addToAttack();
+
                 } else {
                     Playing.addToDefender();
                 }
+                Playing.teleportToStart();
             }
         }
     }
