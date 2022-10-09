@@ -21,19 +21,20 @@ public class AcceptChallenge implements CommandExecutor {
     public AcceptChallenge(ChallengePlayer cP){
         challengePlayer = cP;
     }
+    public Player ta, p;
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String label, @NotNull String[] args) {
         if(!(sender instanceof Player)){
             Bukkit.getConsoleSender().sendMessage(Main.prefix + "§cDu musst ein Spieler sein, um diesen Befehl nutzen zu können!");
             return false;
         }
-        Player ta = (Player) sender;
+        ta = (Player) sender;
         if(cmd.getName().equalsIgnoreCase("AcceptChallenge")){
             if (args.length != 1) {
                 ta.sendMessage(Main.prefix + "§cUngültige Argumente! §Syntax:/acceptChallenge [PlayerName]");
                 return false;
             }
-            Player p = ta.getServer().getPlayerExact(args[0]);
+            p = ta.getServer().getPlayerExact(args[0]);
             if(p == null){
                 ta.sendMessage(Main.prefix + "§cDieser Spieler ist nicht online");
                 return false;

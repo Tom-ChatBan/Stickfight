@@ -16,13 +16,13 @@ public class Playing {
     static int punkteDefender = 0;
     public static void addToAttack(){
         punkteAttacker++;
-        attack.sendMessage(Main.prefix + "§aDu hast jetzt " + punkteAttacker + " §Punkte!");
-        def.sendMessage(Main.prefix +"§a"+ attack.getName() + " hat nun "+ punkteAttacker + " Punkte!");
+        attack.sendMessage(Main.prefix + "§aDu hast jetzt " + punkteAttacker + " Punkte!");
+        def.sendMessage(Main.prefix +"§c"+ attack.getName() + " hat nun "+ punkteAttacker + " Punkte!");
     }
     public static void addToDefender(){
         punkteDefender++;
-        def.sendMessage(Main.prefix + "§aDu hast jetzt " + punkteDefender + " §Punkte!");
-        attack.sendMessage(Main.prefix +"§a"+ attack.getName() + " hat nun "+ punkteDefender + " Punkte!");
+        def.sendMessage(Main.prefix + "§aDu hast jetzt " + punkteDefender + " Punkte!");
+        attack.sendMessage(Main.prefix +"§c"+ attack.getName() + " hat nun "+ punkteDefender + " Punkte!");
     }
     public static int getPunkteAttacker(){
         return punkteAttacker;
