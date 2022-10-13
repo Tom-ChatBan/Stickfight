@@ -2,6 +2,8 @@ package me.tom.stickfight;
 
 import me.tom.stickfight.Main;
 import me.tom.stickfight.commands.AcceptChallenge;
+import net.md_5.bungee.api.ChatMessageType;
+import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
@@ -37,5 +39,16 @@ public class Playing {
         Location defender = new Location(def.getWorld(), -153, 151, 42);
         attack.teleport(challenger);
         def.teleport(defender);
+    }
+
+    public static void sendActionbar(final Player player, final String message){
+        player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(message));
+    }
+    public static int maxPoints(){
+        if(punkteAttacker > punkteDefender){
+            return punkteAttacker;
+        } else {
+            return punkteDefender;
+        }
     }
 }

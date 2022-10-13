@@ -9,10 +9,11 @@ import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Main extends JavaPlugin {
-
+    public static Main plugin;
     public static String prefix = "§7[§6Stick-Fight§7]§f";
     @Override
     public void onEnable() {
+        plugin = this;
         Bukkit.getConsoleSender().sendMessage(prefix + "§aStickfight Plugin geladen!");
         ChallengePlayer chP = new ChallengePlayer();
         AcceptChallenge aC = new AcceptChallenge(chP);
