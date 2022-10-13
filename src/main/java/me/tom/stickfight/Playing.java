@@ -40,7 +40,7 @@ public class Playing {
         attack.teleport(challenger);
         def.teleport(defender);
     }
-
+    @Deprecated
     public static void sendActionbar(final Player player, final String message){
         player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacyText(message));
     }

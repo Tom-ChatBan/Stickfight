@@ -1,5 +1,6 @@
 package me.tom.stickfight.commands;
 
+import me.tom.stickfight.Bridge;
 import me.tom.stickfight.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -9,7 +10,9 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
 
@@ -17,6 +20,7 @@ import java.util.ArrayList;
 
 public class AcceptChallenge implements CommandExecutor {
     ChallengePlayer challengePlayer;
+
     public ArrayList<Player> currentlyPlaying = new ArrayList<Player>();
     public AcceptChallenge(ChallengePlayer cP){
         challengePlayer = cP;
@@ -40,8 +44,13 @@ public class AcceptChallenge implements CommandExecutor {
                 return false;
             }
            if(challengePlayer.containsPlayer(p, ta)){
-               Location challenger = new Location(p.getWorld(), -169, 151, 42);
-               Location defender = new Location(p.getWorld(), -153, 151, 42);
+               int zPos = Main.bridge.newBridge(p);
+               Location challenger = new Location(p.getWorld(), 170, 276, zPos);
+               Location defender = new Location(p.getWorld(), 150, 276, zPos);
+               ItemStack[] pInv = p.getInventory().getContents();
+               p.getInventory().clear();
+               p.sendMessage("CLEARED");
+               p.getInventory().setContents(pInv);
                 p.teleport(challenger);
                 ta.teleport(defender);
                ItemStack stick = new ItemStack(Material.STICK, 1);
